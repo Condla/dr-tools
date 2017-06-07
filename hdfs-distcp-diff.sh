@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # specify the cluster names and don't forget the last "/" (!)
-FULL_PATH1="hdfs://cluster1:8020/path/to/source/dir/"
-FULL_PATH2="hdfs://cluster2:8020/target/dir/"
+#export FULL_PATH1="hdfs://cluster1:8020/path/to/source/dir/"
+#export FULL_PATH2="hdfs://cluster2:8020/target/dir/"
 
 # count dashes in path
 dash="/"
