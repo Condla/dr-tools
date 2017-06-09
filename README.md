@@ -1,6 +1,11 @@
 # dr-tools
 Tools for Hadoop disaster recovery
 
+## Rangercli
+
+This is a set of scripts that interacts with the Ranger REST API to transfer
+and compare policies of two clusters.
+
 ## Hive Schema Copy Script
 
 This is simple sample script that does the following:
