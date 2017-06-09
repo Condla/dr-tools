@@ -7,8 +7,8 @@ to the second instance.
 
 
 ## Prerequisites
-In order to connect to both of the Ranger hosts, it is required to set a few environment
-variables:
+* In order to connect to both of the Ranger hosts, it is required to set a few environment
+variables for all of the following scripts
 ```
 export RANGER_HOST=https://hostname.example.com
 export RANGER_HOST2=https://hostname2.example.com
@@ -22,18 +22,39 @@ export CLUSTERNAME=mastercluster
 export CLUSTERNAME=replicacluster
 ```
 
-## Python version
+* Download the scripts:
+```
+git clone https://github.com/Condla/dr-tools
+cd dr-tools/rangercli
+```
+
+## Transfer Policy
+
+Example: I want to transfer policy with id 4 from cluster one to cluster 2: 
+```
+./transfer-policy.sh 4
+```
+
+## Compare Policies
+Example: I want to compare the policies of two clusters for completeness and
+major differences with output on the command line.
+```
+./compare-policies.sh
+```
+
+## Mirror Policies
+Example: I want to delete all policies on cluster 2 and force all policies on
+cluster 1 to be transfered.
+
+### Python Version
 Then clone or download this project and execute the mirror-policies.py script
 *Note: if you use the Python version you need to be able to install the
 requests module*
 ```
-git clone https://github.com/Condla/rangercli
-cd rangercli
 python mirror-policies.py
 ```
 
-
-## Bash version
+### Bash version
 If you can't install the requests module
 *Note: if you use the bash version of the script, policy definitions will temporarily
 be saved in the path specified by the $TEMP_POLICY_FILE variable. At the moment this is the /tmp/policy.json file
