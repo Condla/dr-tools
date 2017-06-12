@@ -7,6 +7,14 @@ This is a set of scripts that interacts with the Ranger REST API to transfer
 and compare policies of two clusters. Have a look at the README.md in the
 rangercli subdirectory for more details.
 
+## Falcon
+
+This directory contains a few XML files serving as examples...
+
+* for creating a cluster entity in Falcon (cluster_example.xml)
+
+* for creating a mirror process between two clusters (mirror_example.dms)
+
 ## Hive Schema Copy Script
 
 This is simple sample script that does the following:

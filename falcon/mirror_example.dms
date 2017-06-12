@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<process name="MyMirror" xmlns="uri:falcon:process:0.1">
+    <tags>_falcon_mirroring_type=HDFS</tags>
+    <clusters>
+        <cluster name="replicaCluster">
+            <validity start="2017-06-11T18:15Z" end="2017-06-18T18:15Z"/>
+        </cluster>
+    </clusters>
+    <parallel>1</parallel>
+    <order>LAST_ONLY</order>
+    <frequency>minutes(5)</frequency>
+    <timezone>GMT+00:00</timezone>
+    <properties>
+        <property name="oozie.wf.subworkflow.classpath.inheritance" value="true"/>
+        <property name="distcpMaxMaps" value="5"/>
+        <property name="distcpMapBandwidth" value="100"/>
+        <property name="drSourceDir" value="hdfs://mastercluster:8020/path/to/source/directory"/>
+        <property name="drTargetDir" value="hdfs://replicacluster:8020/path/to/target/directory"/>
+        <property name="drTargetClusterFS" value="hdfs://replicacluster:8020"/>
+        <property name="drSourceClusterFS" value="hdfs://mastercluster:8020"/>
+        <property name="drNotificationReceivers" value="NA"/>
+        <property name="targetCluster" value="replicaCluster"/>
+        <property name="sourceCluster" value="masterCluster"/>
+    </properties>
+    <workflow name="MyMirror-WF" engine="oozie" path="/apps/data-mirroring/workflows/hdfs-replication-workflow.xml" lib=""/>
+    <retry policy="periodic" delay="minutes(30)" attempts="3"/>
+    <ACL owner="myUser" group="myGroup" permission="0755"/>
+</process>
