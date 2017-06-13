@@ -54,22 +54,22 @@ for policy1 in policies1:
         isRecursive2 = policy2["isRecursive"]
         permMapList2 = policy2["permMapList"]
         if repoType2 == repoType1 and resourceName2 == resourceName1:
-            print("policy {} found".format(policy1['id']))
+            print("policy {0} found".format(policy1['id']))
             policy_found = True
             policies2.remove(policy2)
             if replacePerm1 != replacePerm2:
-                print("replacePerm different from policy with id {}".format(policy1["id"]))
+                print("replacePerm different from policy with id {0}".format(policy1["id"]))
             if isAuditEnabled1 != isAuditEnabled2:
-                print("isAuditEnabled different from policy with id {}".format(policy1["id"]))
+                print("isAuditEnabled different from policy with id {0}".format(policy1["id"]))
             if isEnabled1 != isEnabled2:
-                print("isEnabled different from policy with id {}".format(policy1["id"]))
+                print("isEnabled different from policy with id {0}".format(policy1["id"]))
             if isRecursive1 != isRecursive2:
-                print("isRecursive different from policy with id {}".format(policy1["id"]))
+                print("isRecursive different from policy with id {0}".format(policy1["id"]))
             if permMapList1 != permMapList2:
-                print("permMapList different from policy with id {}".format(policy1["id"]))
+                print("permMapList different from policy with id {0}".format(policy1["id"]))
             break
     if not policy_found:
-        print("policy with id {}, was not found on cluster 2".format(policy1["id"]))
+        print("policy with id {0}, was not found on cluster 2".format(policy1["id"]))
 
 if len(policies2):
     print()
